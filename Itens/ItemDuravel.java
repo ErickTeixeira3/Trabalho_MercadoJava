@@ -2,8 +2,8 @@ package Itens;
 public class ItemDuravel extends Item {
     private int diasGarantia;
 
-    public ItemDuravel(int id, String nome, double preco, int diasGarantia) {
-        super(id, nome, preco);
+    public ItemDuravel(int id, String nome, double preco, int diasGarantia, int quantidade) {
+        super(id, nome, preco, quantidade);
         this.diasGarantia = diasGarantia;
     }
     // Getters e Setters

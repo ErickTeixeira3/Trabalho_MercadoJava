@@ -4,8 +4,8 @@ import java.util.Date;
 public class ItemPerecivel extends Item {
     private Date validade;
     
-    public ItemPerecivel(int id, String nome, double preco, Date validade) {
-        super(id, nome, preco);
+    public ItemPerecivel(int id, String nome, double preco, Date validade, int quantidade) {
+        super(id, nome, preco, quantidade);
         this.validade = validade;
     }
     // Getters e Setters
