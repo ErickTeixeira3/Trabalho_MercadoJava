@@ -7,6 +7,11 @@ public class Caixa {
     private Pagamento pagamento;
     private List<Item> carrinho = new ArrayList<Item>();
 
+
+    public Caixa(Pagamento pagamento){
+        this.pagamento = pagamento;
+    }
+
     public void adicionarItem(Item item){
         carrinho.add(item);
     }
@@ -14,15 +19,15 @@ public class Caixa {
     public double calcularTotal(){
         double total = 0;
         for(Item item : carrinho){
-            total += item.getPreco();
+            total += item.getPreco() * item.getQuantidade();
         }
         return total;
     }
     
-    public void setPagamento(Pagamento pagamento){
-        this.pagamento = pagamento;
-    }
-    public void processarCompra(){
+    public void processarCompra() throws CarrinhoVazioException {
+        if(carrinho.isEmpty()){
+            throw new CarrinhoVazioException("O carrinho está vazio!");
+        }
         pagamento.pagar(calcularTotal());
     }    
 }
