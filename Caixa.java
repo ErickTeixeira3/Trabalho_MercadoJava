@@ -1,14 +1,15 @@
 import Itens.Item;
-import Pagamento.Pagamento;
+import Pagamento.TiposPagamento.PagamentoStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Caixa {
-    private Pagamento pagamento;
+    private PagamentoStrategy pagamento;
     private List<Item> carrinho = new ArrayList<Item>();
 
 
-    public Caixa(Pagamento pagamento){
+    public Caixa(PagamentoStrategy pagamento){
         this.pagamento = pagamento;
     }
 
