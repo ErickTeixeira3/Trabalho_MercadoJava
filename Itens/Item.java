@@ -66,6 +66,6 @@ public abstract class Item implements Prototype, Cloneable {
     }
 
     public String toString(){
-        return "Id: " + id + ", Nome: " + nome + ", Preço: " + preco + ", Quantidade: " + quantidade;
+        return "Id: " + id + ", Nome: " + nome + ", Preço: " + preco + ", Quantidade: " + quantidade + ", Marca: " + marca;
     }
 }

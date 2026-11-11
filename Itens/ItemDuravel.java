@@ -12,6 +12,10 @@ public abstract class ItemDuravel extends Item {
         return super.toString() + ", Dias de Garantia: " + diasGarantia;
     }
 
+    @Override
+    public ItemDuravel clonar() {
+        return (ItemDuravel) super.clonar();
+    }
 
     // Getters e Setters
     public int getDiasGarantia() {
