@@ -35,22 +35,31 @@ public class Main {
         leite2.setPreco(12);
         leite2.setValidade(new Date());
 
-        ItemDuravel TV2 = (ItemDuravel) TV.clonar();
+        ItemDuravel TV2 = TV.clonar();
         TV2.setId(6);
         TV2.setMarca("LG");
         TV2.setPreco(1200);
 
+        System.out.println("Itens clonados");
+        System.out.println(leite);
         System.out.println(leite2);
+        System.out.println(TV);
         System.out.println(TV2);
 
 
         PagamentoCartaoStrategy pagamento = new PagamentoCartaoStrategy();
+        PagamentoPixStrategy pagamentoPix = new PagamentoPixStrategy();
         pagamento.adicionarNotificavel(new PagamentoObserver());
         Caixa caixa = new Caixa(pagamento);
+        Caixa caixaPix = new Caixa(pagamentoPix);
 
         caixa.adicionarItem(TV);
         caixa.adicionarItem(arroz);
         caixa.adicionarItem(boneca);
+
+        caixaPix.adicionarItem(TV);
+        caixaPix.adicionarItem(arroz);
+        caixaPix.adicionarItem(boneca);
 
         try {
             caixa.processarCompra();
@@ -58,6 +67,11 @@ public class Main {
             System.out.println("Erro ao processar a compra: " + e.getMessage());
         }
 
+        try {
+            caixaPix.processarCompra();
+        } catch (CarrinhoVazioException e) {
+            System.out.println("Erro ao processar a compra: " + e.getMessage());
+        }
 
     }
 }

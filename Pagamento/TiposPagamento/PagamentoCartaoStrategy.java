@@ -10,7 +10,7 @@ public class PagamentoCartaoStrategy implements PagamentoStrategy{
 
     private List<Observer> notificaveis = new ArrayList<>();
 
-    //para implementar estoque, emissor de NF, etc
+    //pra implementar estoque, emissor de NF, etc
     public void adicionarNotificavel(Observer notificavel) {
         notificaveis.add(notificavel);
     }
@@ -23,7 +23,7 @@ public class PagamentoCartaoStrategy implements PagamentoStrategy{
 
     @Override
     public void pagar(double valor) {
-        System.out.println("Pagando " + (valor + valor*taxa) + " com cartão");
+        System.out.println("Tentando pagar " + (valor + valor*taxa) + " com cartão");
 
         if (valor > limiteCartao) {
             notificar("Pagamento recusado: valor excede o limite do cartão");
