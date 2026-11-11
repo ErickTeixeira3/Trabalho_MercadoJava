@@ -19,21 +19,21 @@ public class Main {
         FabricaItem prateleira = new FabricaPrateleira();
 
 
-        ItemPerecivel leite = balcao.criarPerecivel(1, "Leite", 10, new Date(), 10, "Tirol");
-        ItemDuravel TV = prateleira.criarDuravel(2, "TV", 1000.0, 365, 1, "Samsung");
+        ItemPerecivel queijo = balcao.criarPerecivel(1, "Queijo", 10, new Date(), 10, "Tirol");
+        ItemDuravel TV = balcao.criarDuravel(2, "TV", 1000.0, 365, 1, "Samsung");
         ItemPerecivel arroz = prateleira.criarPerecivel(3, "Arroz", 20, new Date(), 5, "Buriti");
         ItemDuravel boneca = prateleira.criarDuravel(4, "Boneca", 50, 30, 5, "Barbie");
 
-        System.out.println(leite);
+        System.out.println(queijo);
         System.out.println(TV);
         System.out.println(arroz);
         System.out.println(boneca);
 
-        ItemPerecivel leite2 = leite.clonar();
-        leite2.setId(5);
-        leite2.setMarca("Piracanjuba");
-        leite2.setPreco(12);
-        leite2.setValidade(new Date());
+        ItemPerecivel queijo2 = queijo.clonar();
+        queijo2.setId(5);
+        queijo2.setMarca("Piracanjuba");
+        queijo2.setPreco(12);
+        queijo2.setValidade(new Date());
 
         ItemDuravel TV2 = TV.clonar();
         TV2.setId(6);
@@ -41,15 +41,17 @@ public class Main {
         TV2.setPreco(1200);
 
         System.out.println("Itens clonados");
-        System.out.println(leite);
-        System.out.println(leite2);
+        System.out.println(queijo);
+        System.out.println(queijo2);
         System.out.println(TV);
         System.out.println(TV2);
 
 
         PagamentoCartaoStrategy pagamento = new PagamentoCartaoStrategy();
         PagamentoPixStrategy pagamentoPix = new PagamentoPixStrategy();
+
         pagamento.adicionarNotificavel(new PagamentoObserver());
+        
         Caixa caixa = new Caixa(pagamento);
         Caixa caixaPix = new Caixa(pagamentoPix);
 
